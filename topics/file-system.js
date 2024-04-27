@@ -95,10 +95,10 @@ const removeFileAsync = async (path) => {
 
 //* pass the string via the env variable and write it to the file
 //* read the file, count the number of words in the file and write them to a new file count.txt, then remove the first file
-const text = process.env.TEXT || '';
+// const text = process.env.TEXT || '';
 
-writeFileAsync(path.resolve(__dirname, 'text.txt'), text)
-	.then(() => readFileAsync(path.resolve(__dirname, 'text.txt')))
-	.then(data => data.split(' ').length)
-	.then(count => writeFileAsync(path.resolve(__dirname, 'count.txt'), `Num. of words ${count}`))
-	.then(() => removeFileAsync(path.resolve(__dirname, 'text.txt')))
+// writeFileAsync(path.resolve(__dirname, 'text.txt'), text)
+// 	.then(() => readFileAsync(path.resolve(__dirname, 'text.txt')))
+// 	.then(data => data.split(' ').length)
+// 	.then(count => writeFileAsync(path.resolve(__dirname, 'count.txt'), `Num. of words ${count}`))
+// 	.then(() => removeFileAsync(path.resolve(__dirname, 'text.txt')))
