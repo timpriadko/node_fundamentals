@@ -1,36 +1,12 @@
-//* threads check
-// const crypto = require('crypto');
+const PORT = process.env.PORT || 5000;
+const Application = require('./framework/Application');
+const userRouter = require('./src/user-router');
+const jsonParser = require('./framework/parseJson');
 
-// const start = Date.now();
+const app = new Application();
 
-// crypto.pbkdf2('123aaa', '5', 1000000, 64, 'sha512', () => {
-// 	console.log('1 end', Date.now() - start)
-// })
+app.use(jsonParser);
 
-// crypto.pbkdf2('123aaa', '5', 1000000, 64, 'sha512', () => {
-// 	console.log('2 end', Date.now() - start)
-// })
+app.addRouter(userRouter);
 
-// crypto.pbkdf2('123aaa', '5', 1000000, 64, 'sha512', () => {
-// 	console.log('3 end', Date.now() - start)
-// })
-
-// crypto.pbkdf2('123aaa', '5', 1000000, 64, 'sha512', () => {
-// 	console.log('4 end', Date.now() - start)
-// })
-
-// crypto.pbkdf2('123aaa', '5', 1000000, 64, 'sha512', () => {
-// 	console.log('5 end', Date.now() - start)
-// })
-
-// console.log(start)
-
-//* process check
-// console.log(process.pid)
-
-//*
-const dotenv = require('dotenv');
-dotenv.config();
-
-console.log(process.env.PORT)
-console.log(process.env.NODE_ENV)
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
