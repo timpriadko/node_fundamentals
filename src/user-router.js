@@ -1,5 +1,5 @@
 const Router = require('../framework/Router');
-
+const controller = require('./user-controller');
 const router = new Router();
 
 const users = [
@@ -7,15 +7,8 @@ const users = [
 	{id: 2, name: 'John_Doe'}
 ]
 
-router.get('/users', (req, res) => {
-	res.send(users);
-})
+router.get('/users', controller.getUsers)
 
-router.post('/users', (req, res) => {
-	console.log(req.body);
-	const user = req.body;
-	users.push(user);
-	res.send(users);
-})
+router.post('/users', controller.createUser)
 
 module.exports = router
